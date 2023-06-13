@@ -8,17 +8,17 @@ def main():
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg")
     tori_img = pg.image.load("fig/3.png")
-    tori_img = pg.transform.flip(tori_img,True,False)
+    tori_img = pg.transform.flip(tori_img,True,False)#２番
+    rotate_img = pg.transform.rotozoom(tori_img,10,1.0)
+    img_lst=[bg_img,rotate_img]
     tmr = 0
-    rotate_img = pg.transform.rotozoom(bg_img,10,1.0)
-    #img_lst=[bg_img,rotate_img]
     
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [0, 0])
-        screen.blit(tori_img[300,200])
+        screen.blit(img_lst[300,200])
         pg.display.update()
         tmr += 1        
         clock.tick(10)
