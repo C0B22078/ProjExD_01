@@ -10,7 +10,7 @@ def main():
     tori_img = pg.image.load("fig/3.png")
     tori_img = pg.transform.flip(tori_img,True,False)#２番
     rotate_img = pg.transform.rotozoom(tori_img,10,1.0)
-    img_lst=[bg_img,rotate_img]
+    img_lst=[tori_img,rotate_img]
     tmr = 0
     
     while True:
@@ -18,7 +18,7 @@ def main():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [0, 0])
-        screen.blit(img_lst[300,200])
+        screen.blit(img_lst[tmr%2],[300,200])
         pg.display.update()
         tmr += 1        
         clock.tick(10)
